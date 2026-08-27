@@ -1,3 +1,28 @@
 [gd_scene format=3 uid="uid://d18v63i2swni8"]
 
+[ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://scripts/TurretPivot.cs" id="1_jjgbg"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kdfhn"]
+size = Vector2(20, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kdfhn"]
+size = Vector3(20, 0.1, 20)
+
 [node name="Main" type="Node3D" unique_id=144613754]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=751300170]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=606857271]
+mesh = SubResource("PlaneMesh_kdfhn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1797315993]
+shape = SubResource("BoxShape3D_kdfhn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1419993036]
+transform = Transform3D(0.8660254, 0.35355338, -0.35355338, 0, 0.70710677, 0.70710677, 0.5, -0.6123724, 0.6123724, 0, 0, 0)
+
+[node name="TurretPivot" type="Node3D" parent="." unique_id=1122621722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
+script = ExtResource("1_jjgbg")
+
+[node name="Camera3D" type="Camera3D" parent="TurretPivot" unique_id=754492219]
