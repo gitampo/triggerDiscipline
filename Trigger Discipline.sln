@@ -1,12 +1,13 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nuovo progetto di gioco", "Nuovo progetto di gioco.csproj", "{E29CA8B3-9B9F-4CEC-B6E4-992B7FA7B6DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trigger Discipline", "Trigger Discipline.csproj", "{E29CA8B3-9B9F-4CEC-B6E4-992B7FA7B6DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-	Debug|Any CPU = Debug|Any CPU
-	ExportDebug|Any CPU = ExportDebug|Any CPU
-	ExportRelease|Any CPU = ExportRelease|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		ExportDebug|Any CPU = ExportDebug|Any CPU
+		ExportRelease|Any CPU = ExportRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E29CA8B3-9B9F-4CEC-B6E4-992B7FA7B6DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -15,5 +16,8 @@ Global
 		{E29CA8B3-9B9F-4CEC-B6E4-992B7FA7B6DE}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
 		{E29CA8B3-9B9F-4CEC-B6E4-992B7FA7B6DE}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
 		{E29CA8B3-9B9F-4CEC-B6E4-992B7FA7B6DE}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
