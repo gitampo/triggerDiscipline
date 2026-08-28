@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d18v63i2swni8"]
 
-[ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://scripts/TurretPivot.cs" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://Scripts/TurretPivot.cs" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://0p52repvid3r" path="res://Scenes/target.tscn" id="2_bo1nx"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kdfhn"]
@@ -9,7 +9,7 @@ size = Vector2(20, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kdfhn"]
 size = Vector3(20, 0.1, 20)
 
-[node name="Main" type="Node3D" unique_id=144613754]
+[node name="Main" type="CanvasLayer" unique_id=1439208576]
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=751300170]
 
@@ -34,3 +34,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
 
 [node name="Target" parent="." unique_id=210558309 instance=ExtResource("2_bo1nx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Control" type="Control" parent="." unique_id=1365405507]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=585337800]
+layout_mode = 0
+offset_right = 133.0
+offset_bottom = 40.0
+text = "Punteggio: 0"
+scroll_active = false
