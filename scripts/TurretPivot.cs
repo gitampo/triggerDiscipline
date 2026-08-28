@@ -7,7 +7,7 @@ public partial class TurretPivot : Node3D
 {
 	private Camera3D _camera;
 	private Camera3D _aimReference;
-	
+		
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

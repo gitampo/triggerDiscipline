@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Target : Area3D
+public partial class Target : PhysicalBone3D
 {
 	[Export] public bool IsGood = false;
 	
