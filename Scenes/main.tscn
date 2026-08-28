@@ -34,7 +34,7 @@ fov = 90.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
 
 [node name="Target" parent="." unique_id=210558309 instance=ExtResource("2_bo1nx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 5, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -3.5)
 
 [node name="Control" type="Control" parent="." unique_id=1365405507]
 layout_mode = 3
