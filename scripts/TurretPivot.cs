@@ -21,21 +21,28 @@ public partial class TurretPivot : Node3D
 		Vector2 mousePos = GetViewport().GetMousePosition();
 		Vector3 rayOrigin = _aimReference.ProjectRayOrigin(mousePos);
 		Vector3 rayDirection = _aimReference.ProjectRayNormal(mousePos);
-		Vector3 rayEnd = rayOrigin + (rayDirection * 1000f);
 
-		PhysicsDirectSpaceState3D spaceState = GetWorld3D().DirectSpaceState;
-		PhysicsRayQueryParameters3D query = PhysicsRayQueryParameters3D.Create(rayOrigin, rayEnd); 
-		Godot.Collections.Dictionary result = spaceState.IntersectRay(query);
+ 		Vector3 planeNormal = -_aimReference.GlobalTransform.Basis.Z;
+		Plane aimPlane = new Plane(planeNormal, _aimReference.GlobalPosition + planeNormal * 10f);	
 
-		if (result.Count > 0)
-		{
-			Vector3 targetPoint = (Vector3)result["position"];
-			LookAt(targetPoint, Vector3.Up);
+		Vector3? intersection = aimPlane.IntersectsRay(rayOrigin, rayDirection);
+
+		if (intersection.HasValue)
+   		{
+			LookAt(intersection.Value, Vector3.Up);
 		}
 
 		if (Input.IsActionJustPressed("shoot"))
 		{
 			GD.Print("Sparato!");
+
+			Vector3 rayEnd = rayOrigin + (rayDirection * 1000f);
+
+			PhysicsDirectSpaceState3D spaceState = GetWorld3D().DirectSpaceState;
+			PhysicsRayQueryParameters3D query = PhysicsRayQueryParameters3D.Create(rayOrigin, rayEnd); 
+			Godot.Collections.Dictionary result = spaceState.IntersectRay(query);
+
+			
 			if (result.Count > 0)
 			{
 				GodotObject colliderObj = result["collider"].As<GodotObject>();
