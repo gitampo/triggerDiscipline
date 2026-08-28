@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.ComponentModel;
+using System.Threading.Tasks.Dataflow;
 
 public partial class TurretPivot : Node3D
 {
@@ -30,6 +31,29 @@ public partial class TurretPivot : Node3D
 		{
 			Vector3 targetPoint = (Vector3)result["position"];
 			LookAt(targetPoint, Vector3.Up);
+		}
+
+		if (Input.IsActionJustPressed("shoot"))
+		{
+			GD.Print("Sparato!");
+			if (result.Count > 0)
+			{
+				GodotObject colliderObj = result["collider"].As<GodotObject>();
+				Target hitTarget = colliderObj as Target;
+				GD.Print("Nodo colpito: ", result["collider"]);
+				
+				if (hitTarget != null){
+					if (hitTarget.IsGood)
+					{
+						GD.Print("Hai colpito un buono! Game Over!");
+					}
+					else 
+					{
+						GD.Print("Nemico colpito!");
+					}
+				}
+				
+			}
 		}
 	}
 }

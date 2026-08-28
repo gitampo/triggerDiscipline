@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://0p52repvid3r"]
+
+[ext_resource type="Script" uid="uid://bwh2jtyf1td3n" path="res://scripts/Target.cs" id="1_vq1qf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kdfhn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p4ukh"]
+
+[node name="Target" type="Area3D" unique_id=210558309]
+script = ExtResource("1_vq1qf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1349676562]
+mesh = SubResource("BoxMesh_kdfhn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=236596512]
+shape = SubResource("BoxShape3D_p4ukh")

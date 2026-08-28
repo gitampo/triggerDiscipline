@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d18v63i2swni8"]
 
 [ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://scripts/TurretPivot.cs" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://0p52repvid3r" path="res://Scenes/target.tscn" id="2_bo1nx"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kdfhn"]
 size = Vector2(20, 20)
@@ -30,3 +31,6 @@ current = true
 
 [node name="AimReference" type="Camera3D" parent="." unique_id=1032059995]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
+
+[node name="Target" parent="." unique_id=210558309 instance=ExtResource("2_bo1nx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
