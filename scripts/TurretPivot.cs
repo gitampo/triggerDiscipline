@@ -36,10 +36,12 @@ public partial class TurretPivot : Node3D
 		{
 			GD.Print("Sparato!");
 
-			Vector3 rayEnd = rayOrigin + (rayDirection * 1000f);
+			Vector3 shootOrigin = _camera.ProjectRayOrigin(mousePos);
+			Vector3 shootDirection = _camera.ProjectRayNormal(mousePos);
+			Vector3 rayEnd = shootOrigin + (shootDirection * 1000f);
 
 			PhysicsDirectSpaceState3D spaceState = GetWorld3D().DirectSpaceState;
-			PhysicsRayQueryParameters3D query = PhysicsRayQueryParameters3D.Create(rayOrigin, rayEnd); 
+			PhysicsRayQueryParameters3D query = PhysicsRayQueryParameters3D.Create(shootOrigin, rayEnd); 
 			Godot.Collections.Dictionary result = spaceState.IntersectRay(query);
 
 			

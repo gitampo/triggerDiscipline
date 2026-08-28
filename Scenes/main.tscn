@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d18v63i2swni8"]
 
-[ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://Scripts/TurretPivot.cs" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://scripts/TurretPivot.cs" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://0p52repvid3r" path="res://Scenes/target.tscn" id="2_bo1nx"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kdfhn"]
@@ -33,7 +33,7 @@ current = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
 
 [node name="Target" parent="." unique_id=210558309 instance=ExtResource("2_bo1nx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 5, 1)
 
 [node name="Control" type="Control" parent="." unique_id=1365405507]
 layout_mode = 3
