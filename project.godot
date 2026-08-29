@@ -24,6 +24,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Trigger Discipline"
 
+[filesystem]
+
+import/size/viewport_width=1152
+
 [input]
 
 shoot={

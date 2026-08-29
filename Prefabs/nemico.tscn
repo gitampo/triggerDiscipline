@@ -1,15 +1,20 @@
 [gd_scene format=3 uid="uid://0p52repvid3r"]
 
-[ext_resource type="Script" uid="uid://bwh2jtyf1td3n" path="res://scripts/Target.cs" id="1_vq1qf"]
+[ext_resource type="Script" uid="uid://bwh2jtyf1td3n" path="res://Scripts/Target.cs" id="1_pylsm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5yaqc"]
+albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_kdfhn"]
+material = SubResource("StandardMaterial3D_5yaqc")
 size = Vector3(5, 5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bo1nx"]
 size = Vector3(5, 5, 5)
 
 [node name="Target" type="CharacterBody3D" unique_id=29846618]
-script = ExtResource("1_vq1qf")
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+script = ExtResource("1_pylsm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1349676562]
 mesh = SubResource("BoxMesh_kdfhn")
