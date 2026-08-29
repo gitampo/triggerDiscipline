@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://d18v63i2swni8"]
 
-[ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://Scripts/TurretPivot.cs" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://scripts/TurretPivot.cs" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://0p52repvid3r" path="res://Scenes/target.tscn" id="2_bo1nx"]
+[ext_resource type="Script" uid="uid://7pypo6ybha1h" path="res://scripts/Spawner.cs" id="3_8gbba"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kdfhn"]
 size = Vector2(20, 20)
@@ -33,9 +34,6 @@ fov = 90.0
 [node name="AimReference" type="Camera3D" parent="." unique_id=1032059995]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
 
-[node name="Target" parent="." unique_id=210558309 instance=ExtResource("2_bo1nx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -3.5)
-
 [node name="Control" type="Control" parent="." unique_id=1365405507]
 layout_mode = 3
 anchors_preset = 0
@@ -48,3 +46,24 @@ offset_right = 133.0
 offset_bottom = 40.0
 text = "Punteggio: 0"
 scroll_active = false
+
+[node name="SpawnPoints" type="Node3D" parent="." unique_id=225675493]
+
+[node name="SpawnPoint1" type="Marker3D" parent="SpawnPoints" unique_id=182378915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, -10)
+
+[node name="SpawnPoint2" type="Marker3D" parent="SpawnPoints" unique_id=325754758]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -10)
+
+[node name="SpawnPoint3" type="Marker3D" parent="SpawnPoints" unique_id=741578342]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, -10)
+
+[node name="Spawner" type="Node3D" parent="." unique_id=1130764735]
+script = ExtResource("3_8gbba")
+TargetScene = ExtResource("2_bo1nx")
+
+[node name="Timer" type="Timer" parent="Spawner" unique_id=1604764247]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
