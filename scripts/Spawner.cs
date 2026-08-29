@@ -3,10 +3,9 @@ using System;
 
 public partial class Spawner : Node3D
 {
-	// serve per poter recuperare l'intera scena Target, anzi che solo la classe 
-	// mi ha consentito di trascinare la scena Target nell'ispettore di Spawner
-	[Export] public PackedScene TargetScene;
-	
+	// Le scene possibili che possono spawnare: per ora solo i nemici e i buoni
+	[Export] public PackedScene[] SpawnScenes;
+
 	private Marker3D[] _spawnPoints;
 	
 	// Called when the node enters the scene tree for the first time.
@@ -27,10 +26,17 @@ public partial class Spawner : Node3D
 	private void OnTimerTimeout()
 	{
 		int randomIndex = GD.RandRange(0, _spawnPoints.Length - 1); // indice casuale per scegliere un punto spawn (RandRange prende min e max)
-		Target newTarget = TargetScene.Instantiate<Target>(); // crea una nuova copia della scena Target
+		/* 
+			sceglie casualmente una scena dall'array delle scene. 
+			per ora ci sono due scene e ognuna ha il 50% di possibilità di essere scelta
+			non conosco altri metodi per ora da usare per scegliere con diverse probabilità ciascuna scena
+		*/
+		int randomSpawn = GD.RandRange(0, SpawnScenes.Length - 1);
+		Target newTarget = SpawnScenes[randomSpawn].Instantiate<Target>(); // crea una nuova copia della scena casuale
 		AddChild(newTarget); // aggiunta del nodo alla scena (prima era solo in memoria)
 		newTarget.GlobalPosition = _spawnPoints[randomIndex].GlobalPosition; // posiziona target in punto spawn casuale
-		newTarget.IsGood = GD.Randf() < 0.3f; // il target sarà buono al 30%
+		
+		// newTarget.IsGood = GD.Randf() < 0.3f; // il target sarà buono al 30%
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
