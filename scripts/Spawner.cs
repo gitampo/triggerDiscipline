@@ -20,7 +20,6 @@ public partial class Spawner : Node3D
 		int width = 9;
 		int spawnWidth = GD.RandRange(-width, width);
 
-		// int randomIndex = GD.RandRange(0, _spawnPoints.Length - 1); // indice casuale per scegliere un punto spawn (RandRange prende min e max)
 		/* 
 			sceglie casualmente una scena dall'array delle scene. 
 			per ora ci sono due scene e ognuna ha il 50% di possibilità di essere scelta

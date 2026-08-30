@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://d18v63i2swni8"]
 
-[ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://Scripts/TurretPivot.cs" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://0p52repvid3r" path="res://Prefabs/nemico.tscn" id="2_bo1nx"]
-[ext_resource type="Script" uid="uid://7pypo6ybha1h" path="res://Scripts/Spawner.cs" id="3_8gbba"]
-[ext_resource type="PackedScene" uid="uid://nd865pm4olyl" path="res://Prefabs/buono.tscn" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://Scripts/TurretPivot.cs" id="1_3dryh"]
+[ext_resource type="Script" uid="uid://7pypo6ybha1h" path="res://Scripts/Spawner.cs" id="2_wowpa"]
+[ext_resource type="PackedScene" uid="uid://0p52repvid3r" path="res://Prefabs/nemico.tscn" id="3_i6g32"]
+[ext_resource type="PackedScene" uid="uid://nd865pm4olyl" path="res://Prefabs/buono.tscn" id="4_1l0tm"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kdfhn"]
 size = Vector2(20, 20)
@@ -26,7 +26,7 @@ transform = Transform3D(0.8660254, 0.35355338, -0.35355338, 0, 0.70710677, 0.707
 
 [node name="TurretPivot" type="Node3D" parent="." unique_id=1122621722]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
-script = ExtResource("1_jjgbg")
+script = ExtResource("1_3dryh")
 
 [node name="Camera3D" type="Camera3D" parent="TurretPivot" unique_id=754492219]
 current = true
@@ -36,9 +36,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
 
 [node name="Control" type="Control" parent="." unique_id=1365405507]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1150.0
-offset_bottom = 650.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.0
+offset_top = -325.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=585337800]
 layout_mode = 0
@@ -48,8 +56,8 @@ text = "Punteggio: 0"
 scroll_active = false
 
 [node name="Spawner" type="Node3D" parent="." unique_id=1130764735]
-script = ExtResource("3_8gbba")
-SpawnScenes = Array[PackedScene]([ExtResource("2_bo1nx"), ExtResource("4_jjvhh")])
+script = ExtResource("2_wowpa")
+SpawnScenes = Array[PackedScene]([ExtResource("3_i6g32"), ExtResource("4_1l0tm")])
 
 [node name="Timer" type="Timer" parent="Spawner" unique_id=1604764247]
 wait_time = 2.0
