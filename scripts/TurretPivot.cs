@@ -23,7 +23,7 @@ public partial class TurretPivot : Node3D
 		Vector3 rayDirection = _aimReference.ProjectRayNormal(mousePos);
 
  		Vector3 planeNormal = -_aimReference.GlobalTransform.Basis.Z;
-		Plane aimPlane = new Plane(planeNormal, _aimReference.GlobalPosition + planeNormal * 10f);	
+		Plane aimPlane = new(planeNormal, _aimReference.GlobalPosition + planeNormal * 10f);	
 
 		Vector3? intersection = aimPlane.IntersectsRay(rayOrigin, rayDirection);
 
