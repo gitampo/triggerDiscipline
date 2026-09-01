@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d18v63i2swni8"]
 
 [ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://Scripts/TurretPivot.cs" id="1_3dryh"]
+[ext_resource type="Script" uid="uid://c7cde35nf5afa" path="res://Scripts/MainController.cs" id="2_kry3j"]
 [ext_resource type="Script" uid="uid://7pypo6ybha1h" path="res://Scripts/Spawner.cs" id="2_wowpa"]
 [ext_resource type="PackedScene" uid="uid://0p52repvid3r" path="res://Prefabs/nemico.tscn" id="3_i6g32"]
 [ext_resource type="PackedScene" uid="uid://nd865pm4olyl" path="res://Prefabs/buono.tscn" id="4_1l0tm"]
@@ -36,15 +37,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
 
 [node name="Control" type="Control" parent="." unique_id=1365405507]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -575.0
-offset_top = -325.0
-offset_right = 576.0
-offset_bottom = 324.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -54,6 +49,59 @@ offset_right = 133.0
 offset_bottom = 40.0
 text = "Punteggio: 0"
 scroll_active = false
+
+[node name="Pausa" type="Control" parent="." unique_id=323312311 node_paths=PackedStringArray("_continueButton", "_exitButton")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_kry3j")
+_continueButton = NodePath("VBoxContainer/HBoxContainer2/Riprendi")
+_exitButton = NodePath("VBoxContainer/HBoxContainer2/Esci")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pausa" unique_id=545159718]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pausa/VBoxContainer" unique_id=949467371]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pausa/VBoxContainer/HBoxContainer" unique_id=1627308451]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 52
+text = "Pausa"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Pausa/VBoxContainer" unique_id=996160656]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Riprendi" type="Button" parent="Pausa/VBoxContainer/HBoxContainer2" unique_id=1145540654]
+custom_minimum_size = Vector2(275, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "Riprendi"
+
+[node name="Esci" type="Button" parent="Pausa/VBoxContainer/HBoxContainer2" unique_id=526195813]
+custom_minimum_size = Vector2(275, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "Esci"
 
 [node name="Spawner" type="Node3D" parent="." unique_id=1130764735]
 script = ExtResource("2_wowpa")
