@@ -6,6 +6,7 @@ public partial class MenuButtons : Node
 	[Export] private Button _startButton;
 	[Export] private Button _loadButton;
 	[Export] private Button _optionsButton;
+	
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

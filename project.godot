@@ -13,7 +13,7 @@ config_version=5
 config/name="Trigger Discipline"
 run/main_scene="uid://bkqwffrr6wc04"
 config/features=PackedStringArray("4.7", "C#", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://Immagini/icon.svg"
 
 [display]
 
