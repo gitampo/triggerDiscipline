@@ -41,6 +41,11 @@ text = "GIOCO FINITO"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label" type="Label" parent="VBoxContainer/Titolo" unique_id=495568753]
+layout_mode = 2
+text = "Hai colpito un buono"
+horizontal_alignment = 1
+
 [node name="Pulsanti" type="HBoxContainer" parent="VBoxContainer" unique_id=337816890 node_paths=PackedStringArray("_backToMenuButton")]
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
