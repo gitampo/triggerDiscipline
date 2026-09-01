@@ -11,7 +11,6 @@ Script da usare per controllare lo stato generale del gioco:
 public partial class MainController : Control
 {
 	public float score = 0;
-	public bool isGameRunning = false;
 	[Export] private Button _continueButton;
 	[Export] private Button _exitButton;
 
