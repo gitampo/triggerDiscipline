@@ -8,10 +8,10 @@ Script da usare per controllare lo stato generale del gioco:
 	(poi serve uno script dedicato per aggiornare la ui)
 - ...
 */
-public partial class MainController : Node
+public partial class MainController : Control
 {
 	public float score = 0;
-	private bool isGameRunning = false;
+	public bool isGameRunning = false;
 	[Export] private Button _continueButton;
 	[Export] private Button _exitButton;
 
@@ -30,18 +30,16 @@ public partial class MainController : Node
 
 	private void HandleButtonClick(string action)
 	{
-		if (isGameRunning)
+		if (action == "Continue")
 		{
-			if (action == "Continue")
-			{
-
-			}
-			if (action == "Exit")
-			{
-				isGameRunning = false;
-				score = 0;
-				GetTree().ChangeSceneToFile("res://scenes/menu.tscn");
-			}
+			GetTree().Paused = false;
+			Visible = GetTree().Paused;
+		}
+		if (action == "Exit")
+		{
+			score = 0;
+			GetTree().Paused = false;
+			GetTree().ChangeSceneToFile("res://Scenes/menu.tscn");
 		}
 	}
 
@@ -51,7 +49,8 @@ public partial class MainController : Node
 		// progetto -> impostazioni del progetto -> mappa di input
 		if (@event.IsActionPressed("ui_cancel"))
 		{
-			GD.Print("esc");
+			GetTree().Paused = !GetTree().Paused;
+			Visible = GetTree().Paused;
 		}
 	}
 }

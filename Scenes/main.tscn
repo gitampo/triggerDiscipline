@@ -51,6 +51,7 @@ text = "Punteggio: 0"
 scroll_active = false
 
 [node name="Pausa" type="Control" parent="." unique_id=323312311 node_paths=PackedStringArray("_continueButton", "_exitButton")]
+process_mode = 3
 visible = false
 layout_mode = 3
 anchors_preset = 15

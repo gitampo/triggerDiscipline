@@ -13,7 +13,6 @@ public partial class Spawner : Node3D
 		timer.Timeout += OnTimerTimeout; // chiama la funzione allo scocco del timeout, += serve per non cancellare la chiamata precedente
 	}
 	
-	
 	private void OnTimerTimeout()
 	{
 		// Per ogni scena che viene creata creo delle coordinate casuali (solo per la x, ovvero la posizione in orizzontale)

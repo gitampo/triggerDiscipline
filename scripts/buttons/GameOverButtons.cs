@@ -18,7 +18,7 @@ public partial class GameOverButtons : HBoxContainer
 	{
 		if (action == "Menu")
 		{
-			GetTree().ChangeSceneToFile("res://scenes/menu.tscn");
+			GetTree().ChangeSceneToFile("res://Scenes/menu.tscn");
 		}
 	}
 }
