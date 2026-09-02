@@ -10,15 +10,22 @@ Script da usare per controllare lo stato generale del gioco:
 */
 public partial class MainController : Control
 {
-	public float score = 0;
+	public float score = 0f;
 	[Export] private Button _continueButton;
 	[Export] private Button _exitButton;
+	private Label _scoreLabel;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		_continueButton.Pressed += () => HandleButtonClick("Continue");
 		_exitButton.Pressed += () => HandleButtonClick("Exit");
+		_scoreLabel = GetNode<Label>("../HUD/ScoreLabel");
+	}
+	
+	public void UpdateScoreLabel()
+	{
+		_scoreLabel.Text = 	$"Punteggio: {score}";
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

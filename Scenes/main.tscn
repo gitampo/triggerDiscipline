@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d18v63i2swni8"]
 
-[ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://Scripts/TurretPivot.cs" id="1_3dryh"]
-[ext_resource type="Script" uid="uid://c7cde35nf5afa" path="res://Scripts/MainController.cs" id="2_kry3j"]
-[ext_resource type="Script" uid="uid://7pypo6ybha1h" path="res://Scripts/Spawner.cs" id="2_wowpa"]
+[ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://scripts/TurretPivot.cs" id="1_3dryh"]
+[ext_resource type="Script" uid="uid://c7cde35nf5afa" path="res://scripts/MainController.cs" id="2_kry3j"]
+[ext_resource type="Script" uid="uid://7pypo6ybha1h" path="res://scripts/Spawner.cs" id="2_wowpa"]
 [ext_resource type="PackedScene" uid="uid://0p52repvid3r" path="res://Prefabs/nemico.tscn" id="3_i6g32"]
 [ext_resource type="PackedScene" uid="uid://nd865pm4olyl" path="res://Prefabs/buono.tscn" id="4_1l0tm"]
 
@@ -34,21 +34,6 @@ current = true
 
 [node name="AimReference" type="Camera3D" parent="." unique_id=1032059995]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
-
-[node name="Control" type="Control" parent="." unique_id=1365405507]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=585337800]
-layout_mode = 0
-offset_right = 133.0
-offset_bottom = 40.0
-text = "Punteggio: 0"
-scroll_active = false
 
 [node name="Pausa" type="Control" parent="." unique_id=323312311 node_paths=PackedStringArray("_continueButton", "_exitButton")]
 process_mode = 3
@@ -111,5 +96,14 @@ SpawnScenes = Array[PackedScene]([ExtResource("3_i6g32"), ExtResource("4_1l0tm")
 [node name="Timer" type="Timer" parent="Spawner" unique_id=1604764247]
 wait_time = 2.0
 autostart = true
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1252563241]
+
+[node name="ScoreLabel" type="Label" parent="HUD" unique_id=573237676]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 81.0
+offset_bottom = 43.0
+text = "Punteggio: 0"
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

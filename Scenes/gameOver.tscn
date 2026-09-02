@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://cak3xndubrv2k"]
 
-[ext_resource type="Script" uid="uid://c7cde35nf5afa" path="res://Scripts/MainController.cs" id="1_jnb8n"]
 [ext_resource type="Texture2D" uid="uid://bqe43fyi6oopv" path="res://Immagini/icon.svg" id="2_fevt1"]
-[ext_resource type="Script" uid="uid://r8fehyt68vgk" path="res://Scripts/buttons/GameOverButtons.cs" id="2_jnb8n"]
+[ext_resource type="Script" uid="uid://dc8xwbc0f0w5r" path="res://scripts/Buttons/GameOverButtons.cs" id="2_jnb8n"]
 
 [sub_resource type="Theme" id="Theme_o8tpu"]
 default_font_size = 35
@@ -18,7 +17,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_jnb8n")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1070728651]
 layout_mode = 1
