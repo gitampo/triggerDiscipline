@@ -46,7 +46,6 @@ public partial class TurretPivot : Node3D
 			PhysicsRayQueryParameters3D query = PhysicsRayQueryParameters3D.Create(shootOrigin, rayEnd); 
 			Godot.Collections.Dictionary result = spaceState.IntersectRay(query);
 
-			
 			if (result.Count > 0)
 			{
 				GodotObject colliderObj = result["collider"].As<GodotObject>();
@@ -63,13 +62,11 @@ public partial class TurretPivot : Node3D
 					{
 						GD.Print("Nemico colpito!");
 						_mainController.score += 10;
-						_mainController.UpdateScoreLabel();
-						
+						_mainController.UpdateScoreLabel();	
 					}
 					
 					hitTarget.QueueFree();
-				}
-				
+				}	
 			}
 		}
 	}

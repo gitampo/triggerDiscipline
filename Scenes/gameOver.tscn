@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cak3xndubrv2k"]
 
 [ext_resource type="Texture2D" uid="uid://bqe43fyi6oopv" path="res://Immagini/icon.svg" id="2_fevt1"]
-[ext_resource type="Script" uid="uid://dc8xwbc0f0w5r" path="res://scripts/Buttons/GameOverButtons.cs" id="2_jnb8n"]
+[ext_resource type="Script" uid="uid://dc8xwbc0f0w5r" path="res://Scripts/Buttons/GameOverButtons.cs" id="2_jnb8n"]
 
 [sub_resource type="Theme" id="Theme_o8tpu"]
 default_font_size = 35
@@ -41,7 +41,9 @@ vertical_alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/Titolo" unique_id=495568753]
 layout_mode = 2
-text = "Hai colpito un buono"
+text = "Hai colpito un buono.
+Sei un completo fallimento
+Nessuno ti vuole bene"
 horizontal_alignment = 1
 
 [node name="Pulsanti" type="HBoxContainer" parent="VBoxContainer" unique_id=337816890 node_paths=PackedStringArray("_backToMenuButton")]
