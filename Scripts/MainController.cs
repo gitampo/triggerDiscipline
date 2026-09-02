@@ -10,9 +10,9 @@ Script da usare per controllare lo stato generale del gioco:
 */
 public partial class MainController : Control
 {
-	public float score = 0f;
 	[Export] private Button _continueButton;
 	[Export] private Button _exitButton;
+	public float score = 0;
 	private Label _scoreLabel;
 
 	// Called when the node enters the scene tree for the first time.
