@@ -6,6 +6,7 @@ public partial class MenuButtons : Node
 	[Export] private Button _startButton;
 	[Export] private Button _optionsButton;
 	[Export] private Button _closeGameButton;
+	private GameManager _gameManager;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -14,6 +15,7 @@ public partial class MenuButtons : Node
 		_startButton.Pressed += () => HandleButtonClick("Start");
 		_optionsButton.Pressed += () => HandleButtonClick("Options");
 		_closeGameButton.Pressed += () => HandleButtonClick("Close");
+		_gameManager = GetNode<GameManager>("/root/GameManager");
 	}
 
 	private void HandleButtonClick(string action)
@@ -24,7 +26,7 @@ public partial class MenuButtons : Node
 		}
 		if (action == "Options")
 		{
-			GD.Print("Opzioni");
+			GetTree().ChangeSceneToFile("res://Scenes/settings.tscn");
 		}
 		if (action == "Close")
 		{

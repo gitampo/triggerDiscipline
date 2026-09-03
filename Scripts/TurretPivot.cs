@@ -62,6 +62,7 @@ public partial class TurretPivot : Node3D
 					{
 						GD.Print("Nemico colpito!");
 						_gameManager.Score += 10;
+						_gameManager.TotalPoints += 10;
 					}
 					
 					hitTarget.QueueFree();

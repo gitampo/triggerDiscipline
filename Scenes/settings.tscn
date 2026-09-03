@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://n0a50i0od2id"]
+
+[ext_resource type="Script" uid="uid://cvrcdpxx81b2" path="res://scripts/Settings.cs" id="1_4geyq"]
+
+[node name="Settings" type="Control" unique_id=1030964985]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4geyq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=677022997]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="Titolo" type="VBoxContainer" parent="VBoxContainer" unique_id=1000933829]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Titolo" unique_id=603755607]
+layout_mode = 2
+text = "IMPOSTAZIONI"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="VBoxContainer" unique_id=1824366299]
+
+[node name="TotalPointsLabel" type="Label" parent="VBoxContainer/CanvasLayer" unique_id=229417366]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Punteggio totale: 0"
