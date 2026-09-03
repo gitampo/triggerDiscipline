@@ -16,7 +16,7 @@ public partial class Spawner : Node3D
 	private void OnTimerTimeout()
 	{
 		// Per ogni scena che viene creata creo delle coordinate casuali (solo per la x, ovvero la posizione in orizzontale)
-		int width = 9;
+		int width = 7;
 		int spawnWidth = GD.RandRange(-width, width);
 
 		/* 

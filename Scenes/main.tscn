@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d18v63i2swni8"]
 
-[ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://scripts/TurretPivot.cs" id="1_3dryh"]
-[ext_resource type="Script" uid="uid://c7cde35nf5afa" path="res://scripts/MainController.cs" id="2_kry3j"]
-[ext_resource type="Script" uid="uid://7pypo6ybha1h" path="res://scripts/Spawner.cs" id="2_wowpa"]
+[ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://Scripts/TurretPivot.cs" id="1_3dryh"]
+[ext_resource type="Script" uid="uid://c7cde35nf5afa" path="res://Scripts/MainController.cs" id="2_kry3j"]
+[ext_resource type="Script" uid="uid://7pypo6ybha1h" path="res://Scripts/Spawner.cs" id="2_wowpa"]
 [ext_resource type="PackedScene" uid="uid://0p52repvid3r" path="res://Prefabs/nemico.tscn" id="3_i6g32"]
 [ext_resource type="PackedScene" uid="uid://nd865pm4olyl" path="res://Prefabs/buono.tscn" id="4_1l0tm"]
 
@@ -10,16 +10,18 @@
 size = Vector2(20, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kdfhn"]
-size = Vector3(20, 0.1, 20)
+size = Vector3(15.986572, 0.1, 59.65857)
 
 [node name="Main" type="CanvasLayer" unique_id=1439208576]
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=751300170]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=606857271]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
 mesh = SubResource("PlaneMesh_kdfhn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1797315993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.037475586, 0, 0.1260376)
 shape = SubResource("BoxShape3D_kdfhn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1419993036]

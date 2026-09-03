@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bkqwffrr6wc04"]
 
 [ext_resource type="Texture2D" uid="uid://bqe43fyi6oopv" path="res://Immagini/icon.svg" id="1_1rerr"]
-[ext_resource type="Script" uid="uid://dpjkexaohy32p" path="res://scripts/Buttons/MenuButtons.cs" id="2_cayip"]
+[ext_resource type="Script" uid="uid://dpjkexaohy32p" path="res://Scripts/Buttons/MenuButtons.cs" id="2_cayip"]
 
 [sub_resource type="Theme" id="Theme_o8tpu"]
 default_font_size = 35
@@ -38,7 +38,7 @@ text = "Grilletto disciplina"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Pulsanti" type="HBoxContainer" parent="VBoxContainer" unique_id=337816890 node_paths=PackedStringArray("_startButton", "_optionsButton")]
+[node name="Pulsanti" type="HBoxContainer" parent="VBoxContainer" unique_id=337816890 node_paths=PackedStringArray("_startButton", "_optionsButton", "_closeGameButton")]
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 theme_override_constants/separation = 21
@@ -46,6 +46,7 @@ alignment = 1
 script = ExtResource("2_cayip")
 _startButton = NodePath("Nuova partita")
 _optionsButton = NodePath("Impostazioni")
+_closeGameButton = NodePath("Chiudi")
 
 [node name="Nuova partita" type="Button" parent="VBoxContainer/Pulsanti" unique_id=740750956]
 custom_minimum_size = Vector2(150, 50)
