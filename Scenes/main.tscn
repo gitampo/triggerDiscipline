@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d18v63i2swni8"]
 
-[ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://Scripts/TurretPivot.cs" id="1_3dryh"]
-[ext_resource type="Script" uid="uid://c7cde35nf5afa" path="res://Scripts/MainController.cs" id="2_kry3j"]
-[ext_resource type="Script" uid="uid://7pypo6ybha1h" path="res://Scripts/Spawner.cs" id="2_wowpa"]
+[ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://scripts/TurretPivot.cs" id="1_3dryh"]
+[ext_resource type="Script" uid="uid://c7cde35nf5afa" path="res://scripts/MainController.cs" id="2_kry3j"]
+[ext_resource type="Script" uid="uid://7pypo6ybha1h" path="res://scripts/Spawner.cs" id="2_wowpa"]
 [ext_resource type="PackedScene" uid="uid://0p52repvid3r" path="res://Prefabs/nemico.tscn" id="3_i6g32"]
 [ext_resource type="PackedScene" uid="uid://nd865pm4olyl" path="res://Prefabs/buono.tscn" id="4_1l0tm"]
 

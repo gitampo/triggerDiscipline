@@ -7,14 +7,14 @@ public partial class TurretPivot : Node3D
 {
 	private Camera3D _camera;
 	private Camera3D _aimReference;
-	private MainController _mainController;
-		
+	private GameManager _gameManager;
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		_camera = GetNode<Camera3D>("Camera3D");
 		_aimReference = GetNode<Camera3D>("../AimReference");
-		_mainController = GetNode<MainController>("../Pausa");
+		_gameManager = GetNode<GameManager>("/root/GameManager");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -61,8 +61,7 @@ public partial class TurretPivot : Node3D
 					else 
 					{
 						GD.Print("Nemico colpito!");
-						_mainController.score += 10;
-						_mainController.UpdateScoreLabel();	
+						_gameManager.Score += 10;
 					}
 					
 					hitTarget.QueueFree();

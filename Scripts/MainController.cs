@@ -12,8 +12,8 @@ public partial class MainController : Control
 {
 	[Export] private Button _continueButton;
 	[Export] private Button _exitButton;
-	public float score = 0;
 	private Label _scoreLabel;
+	private GameManager _gameManager;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -21,17 +21,14 @@ public partial class MainController : Control
 		_continueButton.Pressed += () => HandleButtonClick("Continue");
 		_exitButton.Pressed += () => HandleButtonClick("Exit");
 		_scoreLabel = GetNode<Label>("../HUD/ScoreLabel");
+		_gameManager = GetNode<GameManager>("/root/GameManager");
 	}
 	
-	public void UpdateScoreLabel()
-	{
-		_scoreLabel.Text = 	$"Punteggio: {score}";
-	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-
+		_scoreLabel.Text = 	$"Punteggio: {_gameManager.Score}";
 	}
 
 	private void HandleButtonClick(string action)
@@ -43,7 +40,7 @@ public partial class MainController : Control
 		}
 		if (action == "Exit")
 		{
-			score = 0;
+			_gameManager.Score = 0;
 			GetTree().Paused = false;
 			GetTree().ChangeSceneToFile("res://Scenes/menu.tscn");
 		}
