@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://7pypo6ybha1h" path="res://Scripts/Spawner.cs" id="2_wowpa"]
 [ext_resource type="PackedScene" uid="uid://0p52repvid3r" path="res://Prefabs/nemico.tscn" id="3_i6g32"]
 [ext_resource type="PackedScene" uid="uid://nd865pm4olyl" path="res://Prefabs/buono.tscn" id="4_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://b025bx50c8cdm" path="res://Assets/Models/albero2.blend" id="6_21xkr"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kdfhn"]
 size = Vector2(20, 20)
@@ -106,6 +107,9 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 81.0
 offset_bottom = 43.0
+theme_override_font_sizes/font_size = 24
 text = "Punteggio: 0"
+
+[node name="albero2" parent="." unique_id=438430446 instance=ExtResource("6_21xkr")]
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
