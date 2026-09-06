@@ -110,6 +110,48 @@ offset_bottom = 43.0
 theme_override_font_sizes/font_size = 24
 text = "Punteggio: 0"
 
-[node name="albero2" parent="." unique_id=438430446 instance=ExtResource("6_21xkr")]
+[node name="Alberi" type="Node" parent="." unique_id=2028866966]
+
+[node name="albero2" parent="Alberi" unique_id=192149623 instance=ExtResource("6_21xkr")]
+transform = Transform3D(0.6310892, 0, 0.7757102, 0, 1, 0, -0.7757102, 0, 0.6310892, -7.2502604, 0.05000019, -1.1683025)
+
+[node name="albero3" parent="Alberi" unique_id=161964943 instance=ExtResource("6_21xkr")]
+transform = Transform3D(0.99212193, 0, -0.12527573, 0, 1, 0, 0.12527573, 0, 0.99212193, -6.9889336, 0.049999237, -5.285447)
+
+[node name="albero4" parent="Alberi" unique_id=1782999637 instance=ExtResource("6_21xkr")]
+transform = Transform3D(-0.28787485, 0, -0.957668, 0, 1, 0, 0.957668, 0, -0.28787485, -7.055502, 0.049999237, -8.735162)
+
+[node name="albero5" parent="Alberi" unique_id=1684073310 instance=ExtResource("6_21xkr")]
+transform = Transform3D(0.9149219, 0, -0.403631, 0, 1, 0, 0.403631, 0, 0.9149219, -6.8363686, 0.049999237, -14.239914)
+
+[node name="albero6" parent="Alberi" unique_id=1877161974 instance=ExtResource("6_21xkr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.513628, 0.049999237, -18.95426)
+
+[node name="albero7" parent="Alberi" unique_id=721130311 instance=ExtResource("6_21xkr")]
+transform = Transform3D(0.010184426, 0, -0.99994814, 0, 1, 0, 0.99994814, 0, 0.010184426, -6.5183125, 0.049999237, -22.927876)
+
+[node name="albero8" parent="Alberi" unique_id=425680253 instance=ExtResource("6_21xkr")]
+transform = Transform3D(0.96831685, 0, -0.2497249, 0, 1, 0, 0.2497249, 0, 0.96831685, 7.224356, 0.049999237, -0.23247528)
+
+[node name="albero9" parent="Alberi" unique_id=523002021 instance=ExtResource("6_21xkr")]
+transform = Transform3D(0.3165181, 0, -0.94858646, 0, 1, 0, 0.94858646, 0, 0.3165181, 7.849579, 0.049999237, -5.542698)
+
+[node name="albero10" parent="Alberi" unique_id=40014226 instance=ExtResource("6_21xkr")]
+transform = Transform3D(0.8877924, 0, 0.46024418, 0, 1, 0, -0.46024418, 0, 0.8877924, 7.690832, 0.05000019, -9.879424)
+
+[node name="albero11" parent="Alberi" unique_id=331899732 instance=ExtResource("6_21xkr")]
+transform = Transform3D(-0.9988946, 0, -0.047006294, 0, 1, 0, 0.047006294, 0, -0.9988946, 7.81246, 0.05000019, -13.303945)
+
+[node name="albero12" parent="Alberi" unique_id=874644993 instance=ExtResource("6_21xkr")]
+transform = Transform3D(0.3126651, 0, 0.94986343, 0, 1, 0, -0.94986343, 0, 0.3126651, 8.021339, 0.049999237, -18.626003)
+
+[node name="albero13" parent="Alberi" unique_id=1158266584 instance=ExtResource("6_21xkr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.861305, 0, -23.421253)
+
+[node name="albero14" parent="Alberi" unique_id=1039692088 instance=ExtResource("6_21xkr")]
+transform = Transform3D(0.058323182, 0, -0.99829775, 0, 1, 0, 0.99829775, 0, 0.058323182, 8.497303, 0, -27.649956)
+
+[node name="albero15" parent="Alberi" unique_id=1413808102 instance=ExtResource("6_21xkr")]
+transform = Transform3D(-0.3819607, 0, 0.9241786, 0, 1, 0, -0.9241786, 0, -0.3819607, -6.8006444, 0.043260574, -28.362907)
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
