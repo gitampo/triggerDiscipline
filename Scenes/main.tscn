@@ -6,6 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://0p52repvid3r" path="res://Prefabs/nemico.tscn" id="3_i6g32"]
 [ext_resource type="PackedScene" uid="uid://nd865pm4olyl" path="res://Prefabs/buono.tscn" id="4_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://b025bx50c8cdm" path="res://Assets/Models/albero2.blend" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://b5ir73o7qxpj4" path="res://Prefabs/lampione.tscn" id="7_344ge"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6bp64"]
+
+[sub_resource type="Sky" id="Sky_6pnsb"]
+sky_material = SubResource("ProceduralSkyMaterial_6bp64")
+
+[sub_resource type="Environment" id="Environment_o8tpu"]
+background_mode = 2
+sky = SubResource("Sky_6pnsb")
+ambient_light_sky_contribution = 0.1
+tonemap_mode = 2
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.08
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_length = 256.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kdfhn"]
 size = Vector2(20, 20)
@@ -14,29 +30,6 @@ size = Vector2(20, 20)
 size = Vector3(15.986572, 0.1, 59.65857)
 
 [node name="Main" type="CanvasLayer" unique_id=1439208576]
-
-[node name="Floor" type="StaticBody3D" parent="." unique_id=751300170]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=606857271]
-transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
-mesh = SubResource("PlaneMesh_kdfhn")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1797315993]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.037475586, 0, 0.1260376)
-shape = SubResource("BoxShape3D_kdfhn")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1419993036]
-transform = Transform3D(0.8660254, 0.35355338, -0.35355338, 0, 0.70710677, 0.70710677, 0.5, -0.6123724, 0.6123724, 0, 0, 0)
-
-[node name="TurretPivot" type="Node3D" parent="." unique_id=1122621722]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
-script = ExtResource("1_3dryh")
-
-[node name="Camera3D" type="Camera3D" parent="TurretPivot" unique_id=754492219]
-current = true
-
-[node name="AimReference" type="Camera3D" parent="." unique_id=1032059995]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
 
 [node name="Pausa" type="Control" parent="." unique_id=323312311 node_paths=PackedStringArray("_continueButton", "_exitButton")]
 process_mode = 3
@@ -92,14 +85,6 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 text = "Torna al menù"
 
-[node name="Spawner" type="Node3D" parent="." unique_id=1130764735]
-script = ExtResource("2_wowpa")
-SpawnScenes = Array[PackedScene]([ExtResource("3_i6g32"), ExtResource("4_1l0tm")])
-
-[node name="Timer" type="Timer" parent="Spawner" unique_id=1604764247]
-wait_time = 2.0
-autostart = true
-
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1252563241]
 
 [node name="ScoreLabel" type="Label" parent="HUD" unique_id=573237676]
@@ -109,49 +94,106 @@ offset_right = 81.0
 offset_bottom = 43.0
 theme_override_font_sizes/font_size = 24
 text = "Punteggio: 0"
+metadata/_edit_use_anchors_ = true
 
-[node name="Alberi" type="Node" parent="." unique_id=2028866966]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2103849624]
+environment = SubResource("Environment_o8tpu")
 
-[node name="albero2" parent="Alberi" unique_id=192149623 instance=ExtResource("6_21xkr")]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=1419993036]
+transform = Transform3D(0.8660254, 0.3535534, -0.3535534, 0, 0.7071068, 0.7071068, 0.5, -0.61237246, 0.61237246, -5.426357, 17.406939, 0)
+visible = false
+shadow_enabled = true
+
+[node name="Floor" type="StaticBody3D" parent="WorldEnvironment" unique_id=751300170]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/Floor" unique_id=606857271]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
+mesh = SubResource("PlaneMesh_kdfhn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Floor" unique_id=1797315993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.037475586, 0, 0.1260376)
+shape = SubResource("BoxShape3D_kdfhn")
+
+[node name="Spawner" type="Node3D" parent="WorldEnvironment" unique_id=1130764735]
+script = ExtResource("2_wowpa")
+SpawnScenes = Array[PackedScene]([ExtResource("3_i6g32"), ExtResource("4_1l0tm")])
+
+[node name="Timer" type="Timer" parent="WorldEnvironment/Spawner" unique_id=1604764247]
+wait_time = 2.0
+autostart = true
+
+[node name="Alberi" type="Node" parent="WorldEnvironment" unique_id=2028866966]
+
+[node name="albero2" parent="WorldEnvironment/Alberi" unique_id=192149623 instance=ExtResource("6_21xkr")]
 transform = Transform3D(0.6310892, 0, 0.7757102, 0, 1, 0, -0.7757102, 0, 0.6310892, -7.2502604, 0.05000019, -1.1683025)
 
-[node name="albero3" parent="Alberi" unique_id=161964943 instance=ExtResource("6_21xkr")]
+[node name="albero3" parent="WorldEnvironment/Alberi" unique_id=161964943 instance=ExtResource("6_21xkr")]
 transform = Transform3D(0.99212193, 0, -0.12527573, 0, 1, 0, 0.12527573, 0, 0.99212193, -6.9889336, 0.049999237, -5.285447)
 
-[node name="albero4" parent="Alberi" unique_id=1782999637 instance=ExtResource("6_21xkr")]
+[node name="albero4" parent="WorldEnvironment/Alberi" unique_id=1782999637 instance=ExtResource("6_21xkr")]
 transform = Transform3D(-0.28787485, 0, -0.957668, 0, 1, 0, 0.957668, 0, -0.28787485, -7.055502, 0.049999237, -8.735162)
 
-[node name="albero5" parent="Alberi" unique_id=1684073310 instance=ExtResource("6_21xkr")]
+[node name="albero5" parent="WorldEnvironment/Alberi" unique_id=1684073310 instance=ExtResource("6_21xkr")]
 transform = Transform3D(0.9149219, 0, -0.403631, 0, 1, 0, 0.403631, 0, 0.9149219, -6.8363686, 0.049999237, -14.239914)
 
-[node name="albero6" parent="Alberi" unique_id=1877161974 instance=ExtResource("6_21xkr")]
+[node name="albero6" parent="WorldEnvironment/Alberi" unique_id=1877161974 instance=ExtResource("6_21xkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.513628, 0.049999237, -18.95426)
 
-[node name="albero7" parent="Alberi" unique_id=721130311 instance=ExtResource("6_21xkr")]
+[node name="albero7" parent="WorldEnvironment/Alberi" unique_id=721130311 instance=ExtResource("6_21xkr")]
 transform = Transform3D(0.010184426, 0, -0.99994814, 0, 1, 0, 0.99994814, 0, 0.010184426, -6.5183125, 0.049999237, -22.927876)
 
-[node name="albero8" parent="Alberi" unique_id=425680253 instance=ExtResource("6_21xkr")]
+[node name="albero8" parent="WorldEnvironment/Alberi" unique_id=425680253 instance=ExtResource("6_21xkr")]
 transform = Transform3D(0.96831685, 0, -0.2497249, 0, 1, 0, 0.2497249, 0, 0.96831685, 7.224356, 0.049999237, -0.23247528)
 
-[node name="albero9" parent="Alberi" unique_id=523002021 instance=ExtResource("6_21xkr")]
+[node name="albero9" parent="WorldEnvironment/Alberi" unique_id=523002021 instance=ExtResource("6_21xkr")]
 transform = Transform3D(0.3165181, 0, -0.94858646, 0, 1, 0, 0.94858646, 0, 0.3165181, 7.849579, 0.049999237, -5.542698)
 
-[node name="albero10" parent="Alberi" unique_id=40014226 instance=ExtResource("6_21xkr")]
+[node name="albero10" parent="WorldEnvironment/Alberi" unique_id=40014226 instance=ExtResource("6_21xkr")]
 transform = Transform3D(0.8877924, 0, 0.46024418, 0, 1, 0, -0.46024418, 0, 0.8877924, 7.690832, 0.05000019, -9.879424)
 
-[node name="albero11" parent="Alberi" unique_id=331899732 instance=ExtResource("6_21xkr")]
+[node name="albero11" parent="WorldEnvironment/Alberi" unique_id=331899732 instance=ExtResource("6_21xkr")]
 transform = Transform3D(-0.9988946, 0, -0.047006294, 0, 1, 0, 0.047006294, 0, -0.9988946, 7.81246, 0.05000019, -13.303945)
 
-[node name="albero12" parent="Alberi" unique_id=874644993 instance=ExtResource("6_21xkr")]
+[node name="albero12" parent="WorldEnvironment/Alberi" unique_id=874644993 instance=ExtResource("6_21xkr")]
 transform = Transform3D(0.3126651, 0, 0.94986343, 0, 1, 0, -0.94986343, 0, 0.3126651, 8.021339, 0.049999237, -18.626003)
 
-[node name="albero13" parent="Alberi" unique_id=1158266584 instance=ExtResource("6_21xkr")]
+[node name="albero13" parent="WorldEnvironment/Alberi" unique_id=1158266584 instance=ExtResource("6_21xkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.861305, 0, -23.421253)
 
-[node name="albero14" parent="Alberi" unique_id=1039692088 instance=ExtResource("6_21xkr")]
+[node name="albero14" parent="WorldEnvironment/Alberi" unique_id=1039692088 instance=ExtResource("6_21xkr")]
 transform = Transform3D(0.058323182, 0, -0.99829775, 0, 1, 0, 0.99829775, 0, 0.058323182, 8.497303, 0, -27.649956)
 
-[node name="albero15" parent="Alberi" unique_id=1413808102 instance=ExtResource("6_21xkr")]
+[node name="albero15" parent="WorldEnvironment/Alberi" unique_id=1413808102 instance=ExtResource("6_21xkr")]
 transform = Transform3D(-0.3819607, 0, 0.9241786, 0, 1, 0, -0.9241786, 0, -0.3819607, -6.8006444, 0.043260574, -28.362907)
 
-[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
+[node name="Node" type="Node" parent="WorldEnvironment" unique_id=1959022942]
+
+[node name="Lampione" parent="WorldEnvironment/Node" unique_id=1658612468 instance=ExtResource("7_344ge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65377, 0.050001144, -3.4961438)
+
+[node name="Lampione4" parent="WorldEnvironment/Node" unique_id=1705348750 instance=ExtResource("7_344ge")]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 6.7288346, 0.050001144, -3.4961438)
+
+[node name="Lampione5" parent="WorldEnvironment/Node" unique_id=41389550 instance=ExtResource("7_344ge")]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 7.2958636, 0.050001144, -15.7827015)
+
+[node name="Lampione6" parent="WorldEnvironment/Node" unique_id=656438990 instance=ExtResource("7_344ge")]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 7.456701, 0.050001144, -25.342482)
+
+[node name="Lampione2" parent="WorldEnvironment/Node" unique_id=213437674 instance=ExtResource("7_344ge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.96993, 0.050001144, -12.276904)
+
+[node name="Lampione3" parent="WorldEnvironment/Node" unique_id=1690358871 instance=ExtResource("7_344ge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65377, 0.050001144, -25.138077)
+
+[node name="TurretPivot" type="Node3D" parent="WorldEnvironment" unique_id=1122621722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
+script = ExtResource("1_3dryh")
+
+[node name="Camera3D" type="Camera3D" parent="WorldEnvironment/TurretPivot" unique_id=754492219]
+current = true
+
+[node name="AimReference" type="Camera3D" parent="WorldEnvironment" unique_id=1032059995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
+
+[connection signal="timeout" from="WorldEnvironment/Spawner/Timer" to="WorldEnvironment/Spawner" method="_on_timer_timeout"]

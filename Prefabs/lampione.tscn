@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b5ir73o7qxpj4"]
+
+[ext_resource type="PackedScene" uid="uid://bbuox0mee2lli" path="res://Assets/Models/lampione.blend" id="1_cbkil"]
+
+[node name="lampione" type="Node3D" unique_id=1658612468]
+
+[node name="asset" parent="." unique_id=949437147 instance=ExtResource("1_cbkil")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0150069, 0, 0.030044317)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1769107864]
+transform = Transform3D(0.9878039, 6.8060055e-09, -0.15570326, 0.15570326, -4.317828e-08, 0.9878039, 0, -1, -4.371139e-08, 0.79663455, 9.2509775, 0)
+light_color = Color(1, 0.9920456, 0.8808251, 1)
+spot_range = 10.0
+spot_attenuation = -0.65
+spot_angle = 29.15
