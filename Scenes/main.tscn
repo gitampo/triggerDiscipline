@@ -16,7 +16,7 @@ sky_material = SubResource("ProceduralSkyMaterial_6bp64")
 [sub_resource type="Environment" id="Environment_o8tpu"]
 background_mode = 2
 sky = SubResource("Sky_6pnsb")
-ambient_light_sky_contribution = 0.1
+ambient_light_sky_contribution = 0.03
 tonemap_mode = 2
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.08
@@ -27,7 +27,7 @@ volumetric_fog_length = 256.0
 size = Vector2(20, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kdfhn"]
-size = Vector3(15.986572, 0.1, 59.65857)
+size = Vector3(26.30304, 0.1, 86.880066)
 
 [node name="Main" type="CanvasLayer" unique_id=1439208576]
 
@@ -107,11 +107,11 @@ shadow_enabled = true
 [node name="Floor" type="StaticBody3D" parent="WorldEnvironment" unique_id=751300170]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/Floor" unique_id=606857271]
-transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
+transform = Transform3D(1.3, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, -10.485463)
 mesh = SubResource("PlaneMesh_kdfhn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Floor" unique_id=1797315993]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.037475586, 0, 0.1260376)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21609497, 0, -13.484711)
 shape = SubResource("BoxShape3D_kdfhn")
 
 [node name="Spawner" type="Node3D" parent="WorldEnvironment" unique_id=1130764735]
@@ -127,35 +127,41 @@ autostart = true
 [node name="albero2" parent="WorldEnvironment/Alberi" unique_id=192149623 instance=ExtResource("6_21xkr")]
 transform = Transform3D(0.6310892, 0, 0.7757102, 0, 1, 0, -0.7757102, 0, 0.6310892, -7.2502604, 0.05000019, -1.1683025)
 
+[node name="albero16" parent="WorldEnvironment/Alberi" unique_id=958947811 instance=ExtResource("6_21xkr")]
+transform = Transform3D(0.59953475, 0, 0.7369247, 0, 0.95, 0, -0.7369247, 0, 0.59953475, -7.2502604, 0.05000019, 3.1079226)
+
 [node name="albero3" parent="WorldEnvironment/Alberi" unique_id=161964943 instance=ExtResource("6_21xkr")]
-transform = Transform3D(0.99212193, 0, -0.12527573, 0, 1, 0, 0.12527573, 0, 0.99212193, -6.9889336, 0.049999237, -5.285447)
+transform = Transform3D(0.89290965, 0, -0.11274817, 0, 0.8999999, 0, 0.11274817, 0, 0.89290965, -6.9889336, 0.049999237, -5.285447)
 
 [node name="albero4" parent="WorldEnvironment/Alberi" unique_id=1782999637 instance=ExtResource("6_21xkr")]
-transform = Transform3D(-0.28787485, 0, -0.957668, 0, 1, 0, 0.957668, 0, -0.28787485, -7.055502, 0.049999237, -8.735162)
+transform = Transform3D(-0.2734811, 0, -0.9097846, 0, 0.95, 0, 0.9097846, 0, -0.2734811, -7.055502, 0.049999237, -8.735162)
 
 [node name="albero5" parent="WorldEnvironment/Alberi" unique_id=1684073310 instance=ExtResource("6_21xkr")]
-transform = Transform3D(0.9149219, 0, -0.403631, 0, 1, 0, 0.403631, 0, 0.9149219, -6.8363686, 0.049999237, -14.239914)
+transform = Transform3D(0.9606679, 0, -0.42381254, 0, 1.05, 0, 0.42381254, 0, 0.9606679, -6.8363686, 0.049999237, -14.239914)
 
 [node name="albero6" parent="WorldEnvironment/Alberi" unique_id=1877161974 instance=ExtResource("6_21xkr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.513628, 0.049999237, -18.95426)
+transform = Transform3D(0.97, 0, 0, 0, 0.97, 0, 0, 0, 0.97, -6.513628, 0.049999237, -18.95426)
 
 [node name="albero7" parent="WorldEnvironment/Alberi" unique_id=721130311 instance=ExtResource("6_21xkr")]
-transform = Transform3D(0.010184426, 0, -0.99994814, 0, 1, 0, 0.99994814, 0, 0.010184426, -6.5183125, 0.049999237, -22.927876)
+transform = Transform3D(0.011712089, 0, -1.1499404, 0, 1.15, 0, 1.1499404, 0, 0.011712089, -6.5183125, 0.049999237, -22.927876)
 
 [node name="albero8" parent="WorldEnvironment/Alberi" unique_id=425680253 instance=ExtResource("6_21xkr")]
-transform = Transform3D(0.96831685, 0, -0.2497249, 0, 1, 0, 0.2497249, 0, 0.96831685, 7.224356, 0.049999237, -0.23247528)
+transform = Transform3D(0.9876832, 0, -0.25471938, 0, 1.02, 0, 0.25471938, 0, 0.9876832, 7.224356, 0.049999237, -0.23247528)
+
+[node name="albero17" parent="WorldEnvironment/Alberi" unique_id=324268015 instance=ExtResource("6_21xkr")]
+transform = Transform3D(0.8714852, 0, -0.22475237, 0, 0.9, 0, 0.22475237, 0, 0.8714852, 7.224356, 0.049999237, 3.5225463)
 
 [node name="albero9" parent="WorldEnvironment/Alberi" unique_id=523002021 instance=ExtResource("6_21xkr")]
-transform = Transform3D(0.3165181, 0, -0.94858646, 0, 1, 0, 0.94858646, 0, 0.3165181, 7.849579, 0.049999237, -5.542698)
+transform = Transform3D(0.3133529, 0, -0.9391006, 0, 0.99, 0, 0.9391006, 0, 0.3133529, 7.849579, 0.049999237, -5.542698)
 
 [node name="albero10" parent="WorldEnvironment/Alberi" unique_id=40014226 instance=ExtResource("6_21xkr")]
-transform = Transform3D(0.8877924, 0, 0.46024418, 0, 1, 0, -0.46024418, 0, 0.8877924, 7.690832, 0.05000019, -9.879424)
+transform = Transform3D(0.8434028, 0, 0.43723196, 0, 0.95, 0, -0.43723196, 0, 0.8434028, 7.690832, 0.05000019, -9.879424)
 
 [node name="albero11" parent="WorldEnvironment/Alberi" unique_id=331899732 instance=ExtResource("6_21xkr")]
-transform = Transform3D(-0.9988946, 0, -0.047006294, 0, 1, 0, 0.047006294, 0, -0.9988946, 7.81246, 0.05000019, -13.303945)
+transform = Transform3D(-0.92897195, 0, -0.043715913, 0, 0.93, 0, 0.043715913, 0, -0.92897195, 7.81246, 0.05000019, -13.303945)
 
 [node name="albero12" parent="WorldEnvironment/Alberi" unique_id=874644993 instance=ExtResource("6_21xkr")]
-transform = Transform3D(0.3126651, 0, 0.94986343, 0, 1, 0, -0.94986343, 0, 0.3126651, 8.021339, 0.049999237, -18.626003)
+transform = Transform3D(0.37519816, 0, 1.1398362, 0, 1.2, 0, -1.1398362, 0, 0.37519816, 8.021339, 0.049999237, -18.626003)
 
 [node name="albero13" parent="WorldEnvironment/Alberi" unique_id=1158266584 instance=ExtResource("6_21xkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.861305, 0, -23.421253)
@@ -170,21 +176,26 @@ transform = Transform3D(-0.3819607, 0, 0.9241786, 0, 1, 0, -0.9241786, 0, -0.381
 
 [node name="Lampione" parent="WorldEnvironment/Node" unique_id=1658612468 instance=ExtResource("7_344ge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65377, 0.050001144, -3.4961438)
+WorkingChance = 0.85
 
 [node name="Lampione4" parent="WorldEnvironment/Node" unique_id=1705348750 instance=ExtResource("7_344ge")]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 6.7288346, 0.050001144, -3.4961438)
 
 [node name="Lampione5" parent="WorldEnvironment/Node" unique_id=41389550 instance=ExtResource("7_344ge")]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 7.2958636, 0.050001144, -15.7827015)
+WorkingChance = 0.74
 
 [node name="Lampione6" parent="WorldEnvironment/Node" unique_id=656438990 instance=ExtResource("7_344ge")]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 7.456701, 0.050001144, -25.342482)
+WorkingChance = 0.83
 
 [node name="Lampione2" parent="WorldEnvironment/Node" unique_id=213437674 instance=ExtResource("7_344ge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.96993, 0.050001144, -12.276904)
+WorkingChance = 0.68
 
 [node name="Lampione3" parent="WorldEnvironment/Node" unique_id=1690358871 instance=ExtResource("7_344ge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65377, 0.050001144, -25.138077)
+WorkingChance = 0.23
 
 [node name="TurretPivot" type="Node3D" parent="WorldEnvironment" unique_id=1122621722]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)

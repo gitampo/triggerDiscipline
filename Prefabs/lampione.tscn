@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://b5ir73o7qxpj4"]
 
 [ext_resource type="PackedScene" uid="uid://bbuox0mee2lli" path="res://Assets/Models/lampione.blend" id="1_cbkil"]
+[ext_resource type="Script" uid="uid://dvwcat2f6a34v" path="res://Scripts/StreetLamp.cs" id="2_qxn3l"]
 
-[node name="lampione" type="Node3D" unique_id=1658612468]
+[node name="lampione" type="Node3D" unique_id=1658612468 node_paths=PackedStringArray("LightSource")]
+script = ExtResource("2_qxn3l")
+LightSource = NodePath("SpotLight3D")
 
 [node name="asset" parent="." unique_id=949437147 instance=ExtResource("1_cbkil")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0150069, 0, 0.030044317)
