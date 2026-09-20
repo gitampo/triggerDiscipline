@@ -51,7 +51,7 @@ public partial class StreetLamp : Node3D
 	{
 		if (LightSource == null)
 		{
-			GD.PushError($"Light source not added: {Name}");
+			GD.PushError($"Light source not added:	 {Name}");
 			SetProcess(false);
 			return; 
 		}
