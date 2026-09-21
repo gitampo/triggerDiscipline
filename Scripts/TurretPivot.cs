@@ -15,6 +15,7 @@ public partial class TurretPivot : Node3D
 		_camera = GetNode<Camera3D>("Camera3D");
 		_aimReference = GetNode<Camera3D>("../AimReference");
 		_gameManager = GetNode<GameManager>("/root/GameManager");
+		Input.MouseMode = Input.MouseModeEnum.Hidden;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

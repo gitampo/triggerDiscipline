@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://d18v63i2swni8"]
 
 [ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://scripts/TurretPivot.cs" id="1_3dryh"]
+[ext_resource type="Texture2D" uid="uid://dtuwenf2h8ir2" path="res://Assets/Textures/mirino.png" id="2_hptm8"]
 [ext_resource type="Script" uid="uid://c7cde35nf5afa" path="res://scripts/MainController.cs" id="2_kry3j"]
 [ext_resource type="Script" uid="uid://7pypo6ybha1h" path="res://scripts/Spawner.cs" id="2_wowpa"]
+[ext_resource type="Script" uid="uid://ceam0glnybx2q" path="res://scripts/Crosshair.cs" id="3_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://0p52repvid3r" path="res://Prefabs/nemico.tscn" id="3_i6g32"]
 [ext_resource type="PackedScene" uid="uid://nd865pm4olyl" path="res://Prefabs/buono.tscn" id="4_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://b025bx50c8cdm" path="res://Assets/Models/albero2.blend" id="6_21xkr"]
@@ -96,6 +98,14 @@ offset_bottom = 43.0
 theme_override_font_sizes/font_size = 24
 text = "Punteggio: 0"
 metadata/_edit_use_anchors_ = true
+
+[node name="Crosshair" type="TextureRect" parent="HUD" unique_id=739240646]
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_hptm8")
+script = ExtResource("3_d1ilt")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2103849624]
 environment = SubResource("Environment_o8tpu")

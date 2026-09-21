@@ -22,9 +22,9 @@ public partial class MainController : Control
 		_exitButton.Pressed += () => HandleButtonClick("Exit");
 		_scoreLabel = GetNode<Label>("../HUD/ScoreLabel");
 		_gameManager = GetNode<GameManager>("/root/GameManager");
+		
 	}
 	
-
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
@@ -54,6 +54,12 @@ public partial class MainController : Control
 		{
 			GetTree().Paused = !GetTree().Paused;
 			Visible = GetTree().Paused;
+			if (GetTree().Paused) {
+				Input.MouseMode = Input.MouseModeEnum.Visible;
+			}
+			else {
+				Input.MouseMode = Input.MouseModeEnum.Hidden;
+			}
 		}
 	}
 }

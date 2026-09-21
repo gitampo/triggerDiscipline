@@ -16,6 +16,7 @@ public partial class MenuButtons : Node
 		_optionsButton.Pressed += () => HandleButtonClick("Options");
 		_closeGameButton.Pressed += () => HandleButtonClick("Close");
 		_gameManager = GetNode<GameManager>("/root/GameManager");
+		Input.MouseMode = Input.MouseModeEnum.Visible;
 	}
 
 	private void HandleButtonClick(string action)

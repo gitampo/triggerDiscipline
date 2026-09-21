@@ -12,6 +12,8 @@ public partial class GameOverButtons : HBoxContainer
 	{
 		_backToMenuButton.Pressed += () => HandleButtonClick("Menu");
 		_gameManager = GetNode<GameManager>("/root/GameManager");
+		Input.MouseMode = Input.MouseModeEnum.Visible;
+
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
