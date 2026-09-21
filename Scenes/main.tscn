@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://d18v63i2swni8"]
 
-[ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://Scripts/TurretPivot.cs" id="1_3dryh"]
-[ext_resource type="Script" uid="uid://c7cde35nf5afa" path="res://Scripts/MainController.cs" id="2_kry3j"]
-[ext_resource type="Script" uid="uid://7pypo6ybha1h" path="res://Scripts/Spawner.cs" id="2_wowpa"]
+[ext_resource type="Script" uid="uid://bkt1kq7kvu2t8" path="res://scripts/TurretPivot.cs" id="1_3dryh"]
+[ext_resource type="Script" uid="uid://c7cde35nf5afa" path="res://scripts/MainController.cs" id="2_kry3j"]
+[ext_resource type="Script" uid="uid://7pypo6ybha1h" path="res://scripts/Spawner.cs" id="2_wowpa"]
 [ext_resource type="PackedScene" uid="uid://0p52repvid3r" path="res://Prefabs/nemico.tscn" id="3_i6g32"]
 [ext_resource type="PackedScene" uid="uid://nd865pm4olyl" path="res://Prefabs/buono.tscn" id="4_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://b025bx50c8cdm" path="res://Assets/Models/albero2.blend" id="6_21xkr"]
 [ext_resource type="PackedScene" uid="uid://b5ir73o7qxpj4" path="res://Prefabs/lampione.tscn" id="7_344ge"]
+[ext_resource type="PackedScene" uid="uid://ckgaaxlhlmksh" path="res://Assets/Models/Turret2.blend" id="8_344ge"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6bp64"]
 
@@ -200,6 +201,9 @@ WorkingChance = 0.23
 [node name="TurretPivot" type="Node3D" parent="WorldEnvironment" unique_id=1122621722]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
 script = ExtResource("1_3dryh")
+
+[node name="Turret2" parent="WorldEnvironment/TurretPivot" unique_id=625984604 instance=ExtResource("8_344ge")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, 5.5)
 
 [node name="Camera3D" type="Camera3D" parent="WorldEnvironment/TurretPivot" unique_id=754492219]
 current = true
