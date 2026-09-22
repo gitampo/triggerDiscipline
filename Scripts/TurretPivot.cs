@@ -8,6 +8,9 @@ public partial class TurretPivot : Node3D
 	private Camera3D _camera;
 	private Camera3D _aimReference;
 	private GameManager _gameManager;
+	private float _yaw = 0f;
+	private float _pitch = 0f;
+	private float sensitivity = 0.1f;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -15,32 +18,21 @@ public partial class TurretPivot : Node3D
 		_camera = GetNode<Camera3D>("Camera3D");
 		_aimReference = GetNode<Camera3D>("../AimReference");
 		_gameManager = GetNode<GameManager>("/root/GameManager");
-		Input.MouseMode = Input.MouseModeEnum.Hidden;
+		Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		Vector2 mousePos = GetViewport().GetMousePosition();
-		Vector3 rayOrigin = _aimReference.ProjectRayOrigin(mousePos);
-		Vector3 rayDirection = _aimReference.ProjectRayNormal(mousePos);
-
- 		Vector3 planeNormal = -_aimReference.GlobalTransform.Basis.Z;
-		Plane aimPlane = new(planeNormal, _aimReference.GlobalPosition + planeNormal * 10f);	
-
-		Vector3? intersection = aimPlane.IntersectsRay(rayOrigin, rayDirection);
-
-		if (intersection.HasValue)
-   		{
-			LookAt(intersection.Value, Vector3.Up);
-		}
+		RotationDegrees = new Vector3(0, _yaw, 0);
+		_camera.RotationDegrees = new Vector3(_pitch, 0, 0);
 
 		if (Input.IsActionJustPressed("shoot"))
 		{
 			GD.Print("Sparato!");
 
-			Vector3 shootOrigin = _camera.ProjectRayOrigin(mousePos);
-			Vector3 shootDirection = _camera.ProjectRayNormal(mousePos);
+			Vector3 shootOrigin = _camera.GlobalPosition;
+			Vector3 shootDirection = -_camera.GlobalTransform.Basis.Z;
 			Vector3 rayEnd = shootOrigin + (shootDirection * 1000f);
 
 			PhysicsDirectSpaceState3D spaceState = GetWorld3D().DirectSpaceState;
@@ -69,6 +61,17 @@ public partial class TurretPivot : Node3D
 					hitTarget.QueueFree();
 				}	
 			}
+		}
+	}
+	
+	public override void _Input(InputEvent @event){
+		
+		if(@event is InputEventMouseMotion mouseMotion){
+			
+ 		_yaw -= mouseMotion.Relative.X * sensitivity;
+		_yaw = Mathf.Clamp(_yaw, -80f, 80f);
+		_pitch -= mouseMotion.Relative.Y * sensitivity;
+		_pitch = Mathf.Clamp(_pitch, -80, 80);
 		}
 	}
 }
